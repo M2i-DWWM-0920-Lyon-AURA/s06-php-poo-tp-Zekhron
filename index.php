@@ -1,11 +1,40 @@
+<?php include './class/Developer.class.php'; ?>
+<?php include './class/Game.class.php'; ?>
+<?php include './class/Platform.class.php'; ?>
+
+<?php
+
+$databaseHandler = new PDO('mysql:host=localhost;dbname=videogames', 'root', 'root');
+
+$result = $databaseHandler->query('SELECT * FROM `developer`');
+$developer = $result->fetchAll();
+$arrayDeveloper = $developer[0];
+
+$result = $databaseHandler->query('SELECT * FROM `game`');
+$game = $result->fetchAll();
+$arrayGame = $game[0];
+
+$result = $databaseHandler->query('SELECT * FROM `platform`');
+$platform = $result->fetchAll();
+$arrayPlatform = $platform[0];
+
+
+// var_dump($arrayPlatform);
+// die();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet" />
+
 <body>
     <div class="container">
         <div class="card text-center">
@@ -26,17 +55,20 @@
                     </tr>
                 </thead>
                 <tbody>
+
+
+
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"><?= $arrayGame['id'] ?></th>
                         <td>
-                            <a href="https://en.wikipedia.org/wiki/Populous_(video_game)">Populous</a>
+                            <a href="<?= $arrayGame['link'] ?>"><?= $arrayGame['title'] ?></a>
                         </td>
-                        <td>5 june 1989</td>
+                        <td><?= $arrayGame['release_date'] ?></td>
                         <td>
-                            <a href="https://en.wikipedia.org/wiki/Bullfrog_Productions">Bullfrog Productions</a>
+                            <a href="<?= $arrayDeveloper['link'] ?>"><?= $arrayDeveloper['name'] ?></a>
                         </td>
                         <td>
-                            <a href="https://en.wikipedia.org/wiki/Amiga">Amiga</a>
+                            <a href="<?= $arrayPlatform['link'] ?>"><?= $arrayPlatform['name'] ?></a>
                         </td>
                         <td>
                             <button class="btn btn-primary btn-sm">
@@ -49,29 +81,9 @@
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>
-                            <a href="https://en.wikipedia.org/wiki/Populous_(video_game)">Doom</a>
-                        </td>
-                        <td>10 December 1993</td>
-                        <td>
-                            <a href="https://en.wikipedia.org/wiki/Bullfrog_Productions">id Software</a>
-                        </td>
-                        <td>
-                            <a href="https://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary btn-sm">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
+
+
+
                     <form>
                         <tr>
                             <th scope="row"></th>
@@ -115,4 +127,5 @@
         </div>
     </div>
 </body>
+
 </html>

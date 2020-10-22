@@ -55,9 +55,6 @@ $arrayPlatform = $platform[0];
                     </tr>
                 </thead>
                 <tbody>
-
-
-
                     <tr>
                         <th scope="row"><?= $arrayGame['id'] ?></th>
                         <td>
@@ -81,9 +78,29 @@ $arrayPlatform = $platform[0];
                             </button>
                         </td>
                     </tr>
-
-
-
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Populous_(video_game)">Doom</a>
+                        </td>
+                        <td>10 December 1993</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Bullfrog_Productions">id Software</a>
+                        </td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
                     <form>
                         <tr>
                             <th scope="row"></th>
